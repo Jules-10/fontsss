@@ -1,0 +1,6 @@
+{
+    "fonts": [
+        { "name": "Roboto", "tags": ["sansserif", "monospace"] },
+        { "name": "Inter", "tags": ["serif"] }
+    ]
+}
