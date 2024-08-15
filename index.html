@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="fontsss" content="width=device-width, initial-scale=1.0" />
+    <title>Fontsss</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <script src="script.js"></script>
+    <section id="header">
+      <div id="filters">
+        <div class="round button" id="reset" onclick="resetFilters()">
+          <svg
+            width="77"
+            height="77"
+            viewBox="0 0 77 77"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.35355 2.64645L74.0642 73.3571M2.64645 73.3571L73.3571 2.64646"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div
+          class="rectangle button"
+          id="serifFilter"
+          onclick="toggleFilter('serif')"
+        >
+          serif
+        </div>
+        <div
+          class="rectangle button"
+          id="sansserifFilter"
+          onclick="toggleFilter('sansserif')"
+        >
+          sans-serif
+        </div>
+        <div
+          class="rectangle button"
+          id="displayFilter"
+          onclick="toggleFilter('display')"
+        >
+          display
+        </div>
+        <div
+          class="rectangle button"
+          id="scriptFilter"
+          onclick="toggleFilter('script')"
+        >
+          script
+        </div>
+        <div
+          class="rectangle button"
+          id="slabFilter"
+          onclick="toggleFilter('slab')"
+        >
+          slab
+        </div>
+        <div
+          class="rectangle button"
+          id="monospaceFilter"
+          onclick="toggleFilter('monospace')"
+        >
+          monospace
+        </div>
+      </div>
+      <div class="rectangle button positive" id="addFont" onclick="addFont()">
+        <svg
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.605339 49.7518L100.605 49.7518M50.1053 100.252L50.1053 0.251787"
+            stroke-width="8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        add font
+      </div>
+    </section>
+
+    <section id="customizer">
+      <input
+        type="text"
+        value="Portez ce vieux whisky au juge blond qui fume"
+        id="textinput"
+        oninput="updateTextDisplay(value)"
+      />
+      <div id="textsizing_box">
+        <input
+          id="textsizing"
+          type="range"
+          min="6"
+          max="96"
+          value="20"
+          name="textsizing"
+          oninput="this.nextElementSibling.value = this.value + 'px'; updateFontSize()"
+        />
+        <output>20px</output>
+      </div>
+    </section>
+
+    <section id="fontsdisplay"></section>
+
+    <section id="addFontWindow">
+      <div id="backHider" onclick="hideFontAdder()"></div>
+      <input type="text" name="name" id="addFontName" placeholder="Roboto" />
+      <div class="tags">
+        <div class="tag" id="serifTag" onclick="toggleTag(this)">serif</div>
+        <div class="tag" id="sansserifTag" onclick="toggleTag(this)">
+          sans-serif
+        </div>
+        <div class="tag" id="displayTag" onclick="toggleTag(this)">display</div>
+        <div class="tag" id="scriptTag" onclick="toggleTag(this)">script</div>
+        <div class="tag" id="slabTag" onclick="toggleTag(this)">slab</div>
+        <div class="tag" id="monospaceTag" onclick="toggleTag(this)">
+          monospace
+        </div>
+      </div>
+      <div
+        class="rectangle button positive"
+        id="submitNewFont"
+        onclick="submitNewFont()"
+      >
+        <svg
+          height="800px"
+          width="800px"
+          version="1.1"
+          id="uploadIcon"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 460.088 460.088"
+          xml:space="preserve"
+        >
+          <g>
+            <g>
+              <g>
+                <path
+                  d="M25.555,139.872h257.526V88.761H25.555C11.442,88.761,0,100.203,0,114.316C0,128.429,11.442,139.872,25.555,139.872z"
+                />
+                <path
+                  d="M25.555,242.429h257.526v-51.111H25.555C11.442,191.318,0,202.76,0,216.874C0,230.988,11.442,242.429,25.555,242.429z"
+                />
+                <path
+                  d="M25.555,293.874v0.001C11.442,293.875,0,305.316,0,319.43s11.442,25.555,25.555,25.555h178.91c-2.021-6.224-3.088-12.789-3.088-19.523c0-11.277,2.957-22.094,8.48-31.588H25.555z"
+                />
+                <path
+                  d="M450.623,302.611c-12.62-12.621-33.083-12.621-45.704,0l-26.535,26.535V52.926c0-17.849-14.469-32.317-32.318-32.317s-32.318,14.469-32.318,32.317v276.22l-26.535-26.535c-12.621-12.62-33.083-12.621-45.704,0c-12.621,12.621-12.621,33.083,0,45.704l81.7,81.699c12.596,12.6,33.084,12.643,45.714,0l81.7-81.699C463.243,335.694,463.244,315.232,450.623,302.611z"
+                />
+              </g>
+            </g>
+          </g>
+        </svg>
+        submit
+      </div>
+    </section>
+
+    <section id="footer">
+      © Jules Tennenbaum - all rights reserved - 08/2024
+    </section>
+  </body>
+</html>
